@@ -40,8 +40,7 @@ describe('Teste o componente <App.js />', () => {
       const url = '/JessyAmigoDaGarotada';
       history.push(url);
 
-      const notFoundMessage = screen.getByRole('heading',
-        { name: /page requested not found/i });
+      const notFoundMessage = screen.getByText('not found', { exact: false });
 
       expect(notFoundMessage).toBeInTheDocument();
     });
