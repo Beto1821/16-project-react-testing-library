@@ -16,8 +16,8 @@ describe('Teste o componente <About.js />', () => {
   it('Testa se a página contém dois parágrafos',
     () => {
       renderWithRouter(<About />);
-      expect(screen.getByText(/This application simulates a Pokédex/))
-        .toBeInTheDocument();
+      const paraG = screen.getByText(/This application simulates a Pokédex/);
+      expect(paraG).toBeInTheDocument();
     });
 
   it('Teste se a página contém a imágemde uma Pokédex',
