@@ -28,4 +28,21 @@ describe('Teste o componente <App.js />', () => {
       userEvent.click(screen.getByRole('link', { name: /about/i }));
       expect(history.location.pathname).toBe('/about');
     });
+  it('Teste se redirecionada para a página Favorites, na URL / clicar link Favorites;',
+    () => {
+      const { history } = renderWithRouter(<App />);
+      userEvent.click(screen.getByText(/favorite pokémons/i));
+      expect(history.location.pathname).toBe('/favorites');
+    });
+  it('Teste aplicação é redirecionada para a página Not Found',
+    () => {
+      const { history } = renderWithRouter(<App />);
+      const url = '/JessyAmigoDaGarotada';
+      history.push(url);
+
+      const notFoundMessage = screen.getByRole('heading',
+        { name: /page requested not found/i });
+
+      expect(notFoundMessage).toBeInTheDocument();
+    });
 });
