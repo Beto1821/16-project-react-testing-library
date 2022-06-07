@@ -15,6 +15,6 @@ describe('Teste o componente <FavoritePokemons.js />', () => {
     () => {
       renderWithRouter(<FavoritePokemons pokemons={ pokemons } />);
       const listFavorite = pokemons;
-      expect(listFavorite).toHaveLength(listFavorite.length);
+      expect(listFavorite.length > 0).toBe(true);
     });
 });
