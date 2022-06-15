@@ -16,10 +16,10 @@ describe('Teste o componente <PokemonDetails.js />', () => {
       userEvent.click(screen.getByRole('button', { name: /electric/i }));
       userEvent.click(screen.getByRole('link', { name: /more details/i }));
 
-      const moreDetails = screen.queryByRole('link', { name: /more details/i });
-      expect(moreDetails).toEqual(null);
+      const pikachuDetails = screen.getByText(/pikachu details/i);
+      expect(pikachuDetails).toBeInTheDocument();
 
-      const summaryText = screen.getByRole('heading', { name: /summary/i });
+      const summaryText = screen.getByText(/summary/i);
       expect(summaryText).toBeInTheDocument();
 
       const pikachuText = screen.getByText(/This intelligent Pokémon roasts hard/);
