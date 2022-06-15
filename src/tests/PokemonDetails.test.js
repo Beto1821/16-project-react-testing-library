@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import RenderWithRouter from '../RenderWithRouter';
 import App from '../App';
 
-const ekansInfo = '/pokemons/25';
+const pikachuInfo = '/pokemons/25';
 
 describe('Teste o componente <PokemonDetails.js />', () => {
   beforeEach(() => {
@@ -22,14 +22,14 @@ describe('Teste o componente <PokemonDetails.js />', () => {
       const summaryText = screen.getByRole('heading', { name: /summary/i });
       expect(summaryText).toBeInTheDocument();
 
-      const ekansText = screen.getByText(/This intelligent Pokémon roasts hard berries/);
-      expect(ekansText).toBeInTheDocument();
+      const pikachuText = screen.getByText(/This intelligent Pokémon roasts hard/);
+      expect(pikachuText).toBeInTheDocument();
     });
 
   it('Teste se existe uma seção com os mapas contendo as localizações do pokémon:',
     () => {
       const { history } = RenderWithRouter(<App />);
-      history.push(ekansInfo);
+      history.push(pikachuInfo);
 
       const locations = screen.getByRole('heading',
         { name: /Game Locations of Pikachu/ });
@@ -47,7 +47,7 @@ describe('Teste o componente <PokemonDetails.js />', () => {
 
   it('Teste se o usuário pode favoritar um pokémon através da página de detalhes', () => {
     const { history } = RenderWithRouter(<App />);
-    history.push(ekansInfo);
+    history.push(pikachuInfo);
 
     const checkBox = screen.getByRole('checkbox', { name: /pokémon favoritado\?/i });
     expect(checkBox).toBeInTheDocument();
